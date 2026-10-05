@@ -2,56 +2,140 @@
   --bg-color: #0f172a;
   --card-bg: #1e293b;
   --text-color: #f8fafc;
-  --accent-color: #38bdf8;
+  --accent-color: #84cc16; /* Fresh green accent matching original branding */
+  --header-bg: #020617;
 }
 
 body.light-mode {
-  --bg-color: #f8fafc;
+  --bg-color: #f1f5f9;
   --card-bg: #ffffff;
   --text-color: #0f172a;
-  --accent-color: #0284c7;
+  --accent-color: #65a30d;
+  --header-bg: #e2e8f0;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
   transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-  text-align: center;
-  margin-bottom: 2rem;
+  background-color: var(--header-bg);
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 
-h1 {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--accent-color);
 }
 
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+#themeToggle {
+  background-color: var(--accent-color);
+  color: #0f172a;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#themeToggle:hover {
+  transform: scale(1.05);
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
 .card {
-  background-color: var(--card-bg);
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-button {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  cursor: pointer;
+.card h2, .card h3 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.subtitle {
   font-weight: bold;
-  transition: transform 0.2s, opacity 0.2s;
+  font-style: italic;
+  opacity: 0.8;
 }
 
-button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-card a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  line-height: 1.6;
 }

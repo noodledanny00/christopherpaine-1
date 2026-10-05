@@ -1,15 +1,20 @@
-// Toggle Dark/Light Mode
+// Active navigation link highlighter
+document.querySelectorAll('.nav-links a').forEach(link => {
+  if (link.href === window.location.href) {
+    link.style.color = 'var(--accent-color)';
+    link.style.borderBottom = '2px solid var(--accent-color)';
+  }
+});
+
+// Dark/Light Mode Switcher
 const themeToggleBtn = document.getElementById('themeToggle');
-themeToggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-});
-
-// Interactive Like Counter
-const likeBtn = document.querySelector('.like-btn');
-const likeCount = document.querySelector('.likes');
-let count = 0;
-
-likeBtn.addEventListener('click', () => {
-  count++;
-  likeCount.textContent = count;
-});
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    if (document.body.classList.contains('light-mode')) {
+      themeToggleBtn.textContent = '☀️ Light Mode';
+    } else {
+      themeToggleBtn.textContent = '✨ Dark Mode';
+    }
+  });
+}
